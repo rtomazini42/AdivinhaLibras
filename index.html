@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinha Libras</title>
+
+
+</head>
+<body>
+
+<header>
+    <h1>Adivinha Libras</h1>
+</header>
+
+
+
+
+<div id="resultado"></div>
+
+    
+    
+
+
+<script>
+
+    function random_palavra(palavras)
+    {
+  
+    return palavras[Math.floor(Math.random()*palavras.length)];}
+
+
+     
+    palavras = ["laranja","revolucao","semestre","sindicato","texto","tubarao","virus","xadrez","zebra"];
+    var palavra_sorteada = random_palavra(palavras);
+    var video = "videos/"+ palavra_sorteada + ".mp4";
+
+
+    document.writeln(`<video loop autoplay muted>
+  <source src="` + video + `" type="video/mp4">
+  Your browser does not support the video tag.
+</video> `)
+
+
+    document.writeln(``)
+    //console.log(video)
+    //a linha acima serve para testar
+
+
+let tentativas = 0
+
+$(document).ready(function(){
+    // Get value on button click and show alert
+    
+    $("#enviar").click(function(){
+        tentativas = tentativas + 1;
+        $('#resultado').empty()
+        var chute = $("#chute").val();
+        var chute = chute.toLowerCase();
+        if(chute == palavra_sorteada){
+            $('#resultado').append(`Acertou em ` + tentativas +` tentativas, parabéns!`);
+            $('#resultado').removeClass('erro');
+            $('#resultado').addClass("acerto");
+        }
+        else{
+            $('#resultado').append('Errou, tente novamente!');
+            $('#resultado').addClass("erro");
+        }
+    });
+});
+
+
+
+</script>
+</head>
+<body>
+    <div id = aviso>
+        <p>Aguarde alguns segundos para que vídeo faça o sinal de libras</p>
+    </div>
+    
+    <div id="palpites">
+    <p>Insira o palpite abaixo:</p>
+    <input type="text" id="chute">
+    <button type="button" id="enviar">Enviar palpite</button>
+    </div>
+
+    <div id="sobreJogo">
+
+    
+        <h2>Sobre o jogo</h2>
+        <p> O jogo funciona de forma simples, o personagem faz o sinal e nós respondemos o que achamos que está sendo dito em libras.</p>
+        <p> Nesse primeiro momento de fase beta contamos apenas com 9 palavras.</p>
+        <p> Nesse primeiro momento de fase beta as palavras não contém caracteres especiais latinos, como acentos e cedilha.</p>
+        <p> O jogo mostra o número de tentativas realizadas.</p>
+        <p>O personagem foi retirado do VLibras, ferramenta gratuita e de código aberto para consulta de palavras em Libras.</p>
+    </div>
+</body>
+
+
+
+<div class="rodape">
+    <img src="https://rtomazini42.github.io/assets/perfil.png" ></img>
+    <a href="https://rtomazini42.github.io/">Criado em HTML,CSS e JavaScript Renan Tomazini</a><br></br>
+</div>
+
+
+</html>
+
