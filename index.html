@@ -21,7 +21,7 @@
 
 
 
-<div id="resultado"></div>
+
 
     
     
@@ -66,6 +66,10 @@ $(document).ready(function(){
             $('#resultado').append(`Acertou em ` + tentativas +` tentativas, parabéns!`);
             $('#resultado').removeClass('erro');
             $('#resultado').addClass("acerto");
+            $('#tweet').removeClass('escondido');
+            $('#tweet a').attr("href", "https://twitter.com/intent/tweet?hashtags=AdivinhaLibras&original_referer=https%3A%2F%2Frtomazini42.github.io%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&related=twitterapi%2Ctwitter&text=Adivinhei%20o%20sinal%20de%20libras%20em%20"+ tentativas +"%20tentativas&url=https%3A%2F%2Frtomazini42.github.io%2FAdivinhaLibras%2F&via=renantomazini")
+            $('#aviso').addClass('escondido')
+
         }
         else{
             $('#resultado').append('Errou, tente novamente!');
@@ -79,6 +83,10 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+    <div id="resultado"></div>
+    <div id="tweet" class="escondido">
+        <a href="">Tweetar resultado </a>
+    </div>
     <div id = aviso>
         <p>Aguarde alguns segundos para que vídeo faça o sinal de libras</p>
     </div>
