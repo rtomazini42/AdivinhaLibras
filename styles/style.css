@@ -105,6 +105,12 @@ button{
 #palpites{
     font-family: 'Lato', sans-serif;
     text-align: center;
+
+}
+
+#palpites input{
+    background-color: #c5ded7;
+    color: #080610;
 }
 
 #sobreJogo{
