@@ -94,6 +94,18 @@ $(document).ready(function(){
             $('#resultado').addClass("erro");
             $('#chute').val("")
         }
+        if(tentativas==5){
+            alert("Para facilitar a palavra começa com: " + palavra_sorteada[0])
+        }
+        if(tentativas==10){
+            alert("Para facilitar a palavra começa com: " + palavra_sorteada[0] + palavra_sorteada[1])
+        }
+        if(tentativas==15){
+            alert("Para facilitar a palavra começa com: " + palavra_sorteada[0] + palavra_sorteada[1] + palavra_sorteada[2])
+        }
+        if(tentativas==20){
+            alert("Hey, psiu, a palavra é: " + palavra_sorteada)
+        }
     });
 });
 
